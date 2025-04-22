@@ -17,8 +17,8 @@ class EnrollmentFactory extends Factory
     public function definition()
     {
         return [
-            'student_id' => Student::factory(),  // Mengambil data dummy mahasiswa
-            'course_id' => Course::factory(),    // Mengambil data dummy kursus
+            'student_id' => Student::factory(),
+            'course_id' => Course::factory(),    
         ];
     }
 }

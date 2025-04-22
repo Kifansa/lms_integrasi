@@ -7,14 +7,14 @@ use App\Models\Enrollment;
 
 class EnrollmentController extends Controller
 {
-    // Menampilkan daftar pendaftaran mahasiswa
+
     public function index()
     {
         $enrollments = Enrollment::with(['student', 'course'])->get();
         return response()->json($enrollments);
     }
 
-    // Menampilkan pendaftaran berdasarkan ID
+
     public function show($id)
     {
         $enrollment = Enrollment::with(['student', 'course'])->find($id);
@@ -26,7 +26,7 @@ class EnrollmentController extends Controller
         return response()->json(['message' => 'Pendaftaran tidak ditemukan'], 404);
     }
 
-    // Menambahkan pendaftaran baru
+
     public function store(Request $request)
     {
         $request->validate([
@@ -42,7 +42,7 @@ class EnrollmentController extends Controller
         return response()->json(['message' => 'Pendaftaran berhasil dibuat', 'enrollment' => $enrollment], 201);
     }
 
-    // Mengupdate data pendaftaran berdasarkan ID
+
     public function update(Request $request, $id)
     {
         $enrollment = Enrollment::find($id);
@@ -63,7 +63,7 @@ class EnrollmentController extends Controller
         return response()->json(['message' => 'Pendaftaran berhasil diperbarui', 'enrollment' => $enrollment]);
     }
 
-    // Menghapus pendaftaran berdasarkan ID
+    
     public function destroy($id)
     {
         $enrollment = Enrollment::find($id);
